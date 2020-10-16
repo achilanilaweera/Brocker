@@ -149,14 +149,8 @@
 </div>
 </div>
 </div>
-<div class="alert alert-primary" role="alert">
-  This is a primary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-</div>
-<script>
-function at(){
-$('.alert').alert();
-}
-</script>
+
+
 <!--  Author Name: Mayuri K. 
  for any PHP, Codeignitor or Laravel work contact me at mayuri.infospace@gmail.com  -->
 <?php include("footer.php"); ?>
