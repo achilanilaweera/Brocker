@@ -7,7 +7,10 @@
 <?php include('sidebar.php');?>
 
 
-                                  
+                   <br>
+                        <marquee scrollamount=4><b>Alert : Don't Sale or Publish this script with your name. However you can use it for Academic Purpose !</b></marquee>
+                  
+                
  <?php 
  include('connect.php');
   $sql = "select * from admin where id = '".$_SESSION["id"]."'";
