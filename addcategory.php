@@ -8,11 +8,22 @@
  if(isset($_POST['submit']))
     {
          $catname=$_POST['catename'];
+         $perchname=$_POST['perchname'];
+         $ownername=$_POST['ownername'];
+         $address=$_POST['address'];
+         $address2=$_POST['address2'];
+         $bname=$_POST['bname'];
+         $city=$_POST['city'];
+         $province=$_POST['province'];
+         $gw=$_POST['gw'];
+         $price=$_POST['price'];
+         $purpose=$_POST['purpose'];
 
-        $query=mysqli_query($conn,"insert into tblcategory (VehicleCat) value('$catname')");
+        $query=mysqli_query($conn,"insert into tblcategory (land_cat,perch,owner,address,address2,broker,city,province,gw,price,purpose) value('$catname','$perchname','$ownername','$address','$address2','$bname','$city','$province','$gw','$price',' $purpose')");
         if ($query) {
-echo "<script>alert('Vehicle Category Entry Detail has been added');</script>";
-echo "<script>window.location.href ='manage-category.php'</script>";
+         
+          echo "<script>alert('Data Successfully Added.');</script>";
+          echo "<scripat>window.location.href ='manage-category.php'</scripat>";
   }
   else
     {
@@ -21,6 +32,8 @@ echo "<script>window.location.href ='manage-category.php'</script>";
 
     
 }
+
+
 ?>
 <div class="pcoded-content">
 <div class="pcoded-inner-content">
@@ -69,47 +82,51 @@ echo "<script>window.location.href ='manage-category.php'</script>";
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Perch/Hectares</label>
-      <input type="text" class="form-control" name="catename" placeholder="Perch/Hectares" required="true" >
+      <input type="text" class="form-control" name="perchname" placeholder="Perch/Hectares" required="true" >
     </div>
   </div>
   <div class="form-group">
     <label for="inputAddress">Owner</label>
-    <input type="text" class="form-control" name="catename" placeholder="John Doe">
+    <input type="text" class="form-control" name="ownername" placeholder="John Doe" required="true" >
   </div>
   <div class="form-group">
     <label for="inputAddress">Address</label>
-    <input type="text" class="form-control" name="catename"placeholder="1234 Main St">
+    <input type="text" class="form-control" name="address"placeholder="1234 Main St" required="true" >
   </div>
   <div class="form-group">
     <label for="inputAddress2">Address 2</label>
-    <input type="text" class="form-control" name="catename" placeholder="Apartment, studio, or floor">
+    <input type="text" class="form-control" name="address2" placeholder="Apartment, studio, or floor">
+  </div>
+  <div class="form-group">
+    <label for="inputAddress2">Broker Name</label>
+    <input type="text" class="form-control" name="bname" placeholder="Apartment, studio, or floor">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputCity">City</label>
-      <input type="text" class="form-control" name="catename">
+      <input type="text" class="form-control" name="city">
     </div>
     <div class="form-group col-md-4">
-      <label for="inputState">Province</label>
-      <select id="inputState" name="catename" class="form-control">
-        <option selected name="catename">Central Province</option>
-        <option selected name="catename">Western Province</option>
-        <option selected name="catename">Southern Province</option>
-        <option selected name="catename">North Province</option>
+      <label for="province">Province</label>
+      <select id="inputState" name="province" class="form-control">
+        <option selected >Central Province</option>
+        <option selected >Western Province</option>
+        <option selected >Southern Province</option>
+        <option selected >North Province</option>
       </select>
     </div>
     <div class="form-group col-md-2">
       <label for="inputZip">G.W</label>
-      <input type="text" name="catename" class="form-control" >
+      <input type="text" name="gw" class="form-control" >
     </div>
   </div>
   <div class="form-group">
     <label for="inputAddress2">Price</label>
-    <input type="text" name="catename" class="form-control"  >
+    <input type="text" name="price" class="form-control"  >
   </div>
   <div class="form-group">
     <label for="inputAddress2">Purpose</label>
-    <input type="text"  name="catename" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    <input type="text"  name="purpose" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
   </div>
   <button type="submit"  name="submit" class="btn btn-primary">Submit</button>
 </form>
@@ -132,6 +149,14 @@ echo "<script>window.location.href ='manage-category.php'</script>";
 </div>
 </div>
 </div>
+<div class="alert alert-primary" role="alert">
+  This is a primary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+</div>
+<script>
+function at(){
+$('.alert').alert();
+}
+</script>
 <!--  Author Name: Mayuri K. 
  for any PHP, Codeignitor or Laravel work contact me at mayuri.infospace@gmail.com  -->
 <?php include("footer.php"); ?>
