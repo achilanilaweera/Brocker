@@ -1,6 +1,5 @@
 
-<!--  Author Name: Mayuri K. 
- for any PHP, Codeignitor or Laravel work contact me at mayuri.infospace@gmail.com  -->
+
  <?php require_once('check_login.php');?>
 <?php include('head.php');?>
 <?php include('header.php');?>
@@ -17,7 +16,7 @@
 <div class="col-lg-8">
 <div class="page-header-title">
 <div class="d-inline">
-<h4>Manage Incoming Vehicle</h4>
+<h4>Manage Buyers</h4>
 
 </div>
 </div>
@@ -28,9 +27,9 @@
 <li class="breadcrumb-item">
 <a href="dashboard.php"> <i class="feather icon-home"></i> </a>
 </li>
-<li class="breadcrumb-item"><a>Manage Vehicle</a>
+<li class="breadcrumb-item"><a>Manage Buyers</a>
 </li>
-<li class="breadcrumb-item"><a href="manage-incomingvehicle.php">Manage Incoming Vehicle</a>
+<li class="breadcrumb-item"><a href="manage-incomingvehicle.php">Manage Buyers</a>
 </li>
 </ul>
 </div>
@@ -44,7 +43,7 @@
 <div class="card-header">
     <div class="col-sm-10">
         
-        <a href="addcategory.php"><button class="btn btn-primary pull-right">+ Add Vehicle</button></a>
+        <a href="addcategory.php"><button class="btn btn-primary pull-right">+ Add Lands</button></a>
         
     </div>
 
@@ -54,24 +53,30 @@
 <table id="dom-jqry" class="table table-striped table-bordered nowrap">
 <thead>
 <tr>
-                                            <th>S.NO</th>
-                                            <th>Parking Number</th>
-                                            <th>Owner Name</th>
-                                            <th>Vehicle Reg Number</th> 
+                                            <th>Buyers Name</th>
+                                            <th>Buyers Address</th>
+                                            <th>Home Telephone</th>
+                                            <th>Mobile</th> 
+                                            <th>Owners Name</th>
+                                            <th>NIC</th>  
                                             <th>Action</th>
                                         </tr>
 </thead>
  <?php
-                                $ret=mysqli_query($conn,"select *from   tblvehicle where Status=''");
-                                $cnt=1;
+                                $ret=mysqli_query($conn,"select *from   tblvehicle ");
+                                //$cnt=1;
                                 while ($row=mysqli_fetch_array($ret)) {
                                 ?> 
 <tbody>
   <tr>
-        	<td><?php echo $cnt;?></td> 
-                                    <td><?php  echo $row['ParkingNumber'];?></td>
-                                    <td><?php  echo $row['OwnerName'];?></td>
-                                  <td><?php  echo $row['RegistrationNumber'];?></td> 
+                              
+                            
+                                    <td><?php  echo $row['buyername'];?></td>
+                                    <td><?php  echo $row['buyeraddress'];?></td>
+                                  <td><?php  echo $row['home'];?></td> 
+                                  <td><?php  echo $row['mobile'];?></td> 
+                                  <td><?php  echo $row['OwnerName'];?></td>
+                                  <td><?php  echo $row['NIC'];?></td>
                                     <td><a href="view-incomingvehicle-detail.php?viewid=<?php echo $row['ID'];?>"class="btn btn-xs btn-primary"><i class="feather icon-clock m-t-10 f-16 " ></i></a>  
                                         <a href="print.php?vid=<?php echo $row['ID'];?>" style="cursor:pointer"  class="btn btn-xs btn-danger"><i class="feather icon-printer   m-t-10 f-16 " ></i></a>
                                     </td>

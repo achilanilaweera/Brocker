@@ -68,7 +68,7 @@ $cnt=1;
 <tbody>
   <tr>
         	<td><?php echo $cnt;?></td>
-            <td><?php  echo $row['VehicleCat'];?></td>
+            <td><?php  echo $row['land_cat'];?></td>
             
             <td>
               <a href="edit-category.php?editid=<?php echo $row['ID'];?>" class="btn btn-xs btn-primary"><i class="feather icon-edit m-t-10 f-16 " ></i></a>

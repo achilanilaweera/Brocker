@@ -7,9 +7,22 @@ if(isset($_POST['submit']))
     {
         $aid=$_SESSION['vpmsaid'];
         $catname=$_POST['catename'];
+        $perchname=$_POST['perchname'];
+        $ownername=$_POST['ownername'];
+        $address=$_POST['address'];
+        $bname=$_POST['bname'];
+        $price=$_POST['price'];
+        $city=$_POST['city'];
+        $province=$_POST['province'];
+        $gw=$_POST['gw'];
+
+
+
+
+
     $eid=$_GET['editid'];
     
-        $query=mysqli_query($conn, "update tblcategory set VehicleCat='$catname' where ID='$eid'");
+        $query=mysqli_query($conn, "update tblcategory set land_cat='$catname', perch='$perchname', owner=' $ownername' , address=' $address', broker=' $bname', price=' $price', city='$city' ,province='$province' ,gw='$gw'where ID='$eid'");
         if ($query) {
         $msg="Category has been updated.";
     }
@@ -73,9 +86,49 @@ if(isset($_POST['submit']))
     <div class="form-group row">
         <label class="col-lg-2">Category</label>
         
-        <input type="text" id="catename" name="catename" class="form-control col-lg-6" placeholder="Vehicle Category" required="true" value="<?php  echo $row['VehicleCat'];?>">
+        <input type="text" id="catename" name="catename" class="form-control col-lg-6" placeholder="Vehicle Category" required="true" value="<?php  echo $row['land_cat'];?>">
         <br>
     </div>
+    <div class="form-group row">
+        <label class="col-lg-2">Perch</label>
+        <input type="text" id="catename" name="perchname" class="form-control col-lg-6" placeholder="Perch" required="true" value="<?php  echo $row['perch'];?>">
+    </div>
+    <div class="form-group row">
+        <label class="col-lg-2">Owner</label>
+        <input type="text" id="catename" name="ownername" class="form-control col-lg-6" placeholder="Perch" required="true" value="<?php  echo $row['owner'];?>">
+    </div>
+    <div class="form-group row">
+        <label class="col-lg-2">Address</label>
+        <input type="text" id="catename" name="address" class="form-control col-lg-6" placeholder="Perch" required="true" value="<?php  echo $row['address'];?>">
+    </div>
+    <div class="form-group row ">
+        <label class="col-lg-2">Broker</label>
+        <input type="text" id="catename" name="bname" class="form-control col-lg-6" placeholder="Perch" required="true" value="<?php  echo $row['broker'];?>">
+        </div>
+        <div class="form-group row ">
+        <label class="col-lg-2">Price</label>
+        <input type="text" id="price" name="price" class="form-control col-lg-6" placeholder="New Price" required="true" value="<?php  echo $row['price'];?>">
+        </div>
+        <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="inputCity">City</label>
+                      <input type="text" class="form-control" id="city" name="city"  required="true" value="<?php  echo $row['city'];?>">
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="province">Province</label>
+                      <select id="inputState" name="province" id="province" class="form-control"  required="true" value="<?php  echo $row['province'];?>">
+                        <option selected>Central Province</option>
+                        <option selected>Western Province</option>
+                        <option selected>Southern Province</option>
+                        <option selected>North Province</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label for="inputZip">G.W</label>
+                      <input type="text" name="gw" id="gw" class="form-control" required="true" value="<?php  echo $row['gw'];?>" >
+                    </div>
+                  </div>
+
     <?php } ?>
         <div class="col-lg-12">
       <button type="submit" name="submit" class="btn btn-primary m-b-0">Update</button>
