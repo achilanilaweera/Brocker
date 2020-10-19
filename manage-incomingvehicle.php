@@ -59,6 +59,8 @@
                                             <th>Mobile</th> 
                                             <th>Owners Name</th>
                                             <th>NIC</th>  
+                                            <th>Payment Status</th> 
+                                            <th>Remarks</th> 
                                             <th>Action</th>
                                         </tr>
 </thead>
@@ -77,8 +79,10 @@
                                   <td><?php  echo $row['mobile'];?></td> 
                                   <td><?php  echo $row['OwnerName'];?></td>
                                   <td><?php  echo $row['NIC'];?></td>
+                                  <td><?php  echo $row['status'];?></td>
+                                  <td><?php  echo $row['remarks'];?></td>
                                     <td><a href="view-incomingvehicle-detail.php?viewid=<?php echo $row['ID'];?>"class="btn btn-xs btn-primary"><i class="feather icon-clock m-t-10 f-16 " ></i></a>  
-                                        <a href="print.php?vid=<?php echo $row['ID'];?>" style="cursor:pointer"  class="btn btn-xs btn-danger"><i class="feather icon-printer   m-t-10 f-16 " ></i></a>
+                                        <a href="delete.php?vid=<?php echo $row['ID'];?>" style="cursor:pointer"  class="btn btn-xs btn-danger"><i class="feather icon-delete   m-t-10 f-16 " ></i></a>
                                     </td>
         </tr>
     

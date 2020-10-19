@@ -9,11 +9,12 @@ if(isset($_POST['submit']))
     $cid=$_GET['viewid'];
       $remark=$_POST['remark'];
       $status=$_POST['status'];
-      $parkingcharge=$_POST['parkingcharge'];
+ 
       
-    $query=mysqli_query($conn, "update  tblvehicle set Remark='$remark',Status='$status',ParkingCharge='$parkingcharge' where ID='$cid'");
+    $query=mysqli_query($conn, "update  tblvehicle set remarks='$remark',status='$status' where ID='$cid'");
     if ($query) {
-    $msg="All remarks has been updated.";
+       echo "<script>alert popup()('Data Successfully Updated.');</script>";
+       echo "<script>window.location.href ='manage-incomingvehicle.php'</script>";
   }
   else
     {
@@ -35,7 +36,7 @@ if(isset($_POST['submit']))
 <div class="col-lg-8">
 <div class="page-header-title">
 <div class="d-inline">
-<h4>Manage Incoming Vehicle</h4>
+<h4>Manage Buyers</h4>
 
 </div>
 </div>
@@ -46,9 +47,9 @@ if(isset($_POST['submit']))
 <li class="breadcrumb-item">
 <a href="dashboard.php"> <i class="feather icon-home"></i> </a>
 </li>
-<li class="breadcrumb-item"><a>Manage Vehicle</a>
+<li class="breadcrumb-item"><a>Manage Buyer</a>
 </li>
-<li class="breadcrumb-item"><a href="manage-incomingvehicle.php">Manage Incoming Vehicle</a>
+<li class="breadcrumb-item"><a href="manage-incomingvehicle.php">Manage Buyere</a>
 </li>
 </ul>
 </div>
@@ -58,7 +59,7 @@ if(isset($_POST['submit']))
 <div class="page-body">
    <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">View Incoming Vehicle</strong>
+                            <strong class="card-title">View Buyer Information</strong>
                         </div>
                         <div class="card-body"> 
                           <?php
@@ -71,44 +72,41 @@ if(isset($_POST['submit']))
                           <table border="1" class="table table-bordered mg-b-0">
               
                             <tr>
-                                <th>Parking Number</th>
-                                <td><?php  echo $row['ParkingNumber'];?></td>
+                                <th>Buyer Name</th>
+                                <td><?php  echo $row['buyername'];?></td>
                               </tr>                             
                               <tr>
-                                <th>Vehicle Category</th>
-                                  <td><?php  echo $row['VehicleCategory'];?></td>
+                                <th>Buyer Address</th>
+                                  <td><?php  echo $row['buyeraddress'];?></td>
                               </tr>
                             <tr>
-                              <th>Vehicle Company Name</th>
-                              <td><?php  echo $packprice= $row['VehicleCompanyname'];?></td>
+                              <th>Home Telephone Number</th>
+                              <td><?php  echo $packprice= $row['home'];?></td>
                             </tr>
                             <tr>
-                              <th>Registration Number</th>
-                              <td><?php  echo $row['RegistrationNumber'];?></td>
+                              <th>Mobile</th>
+                              <td><?php  echo $row['mobile'];?></td>
                             </tr>
                             <tr>
                               <th>Owner Name</th>
                               <td><?php  echo $row['OwnerName'];?></td>
                             </tr>
                             <tr>  
-                              <th>Owner Contact Number</th>
-                              <td><?php  echo $row['OwnerContactNumber'];?></td>
+                              <th>NIC</th>
+                              <td><?php  echo $row['NIC'];?></td>
                             </tr>
-                            <tr>
-                              <th>In Time</th>
-                              <td><?php  echo $row['InTime'];?></td>
-                            </tr>
+                    
                             <tr>
                             <th>Status</th>
                             <td> 
                               <?php  
-                              if($row['Status']=="")
+                              if($row['status']=="Paid")
                               {
-                                echo "Vehicle In";
+                                echo "Paid";
                               }
-                              if($row['Status']=="Out")
+                              if($row['status']=="Not Paid")
                               {
-                                echo "Vehicle out";
+                                echo "Not Paid";
                               } 
                               ;?>
                             </td>
@@ -129,16 +127,10 @@ if(isset($_POST['submit']))
                       <textarea name="remark" placeholder="" rows="12" cols="14" class="form-control" required="true"></textarea></td>
                     </tr>
                     <tr>
-                      <th>Parking Charge: </th>
-                      <td>
-                        <input type="text" name="parkingcharge" id="parkingcharge" class="form-control" >
-                      </td>
-                    </tr>
-                    <tr>
                       <th>Status :</th>
                       <td>
                         <select name="status" class="form-control" required="true" >
-                          <option value="Out">Outgoing Vehicle</option>
+                          <option value="Paid">Paid Customer</option>
                         </select>
                       </td>
                     </tr>
