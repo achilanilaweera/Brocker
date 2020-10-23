@@ -17,9 +17,8 @@
 <div class="col-lg-8">
 <div class="page-header-title">
 <div class="d-inline">
-<h4>Manage Category</h4>
-<!--  Author Name: Mayuri K. 
- for any PHP, Codeignitor or Laravel work contact me at mayuri.infospace@gmail.com  -->
+<h4>Manage Land</h4>
+
 </div>
 </div>
 </div>
@@ -29,9 +28,9 @@
 <li class="breadcrumb-item">
 <a href="dashboard.php"> <i class="feather icon-home"></i> </a>
 </li>
-<li class="breadcrumb-item"><a>Vehicle Category</a>
+<li class="breadcrumb-item"><a>Land</a>
 </li>
-<li class="breadcrumb-item"><a href="manage-category.php">Manage Category</a>
+<li class="breadcrumb-item"><a href="manage-category.php">Manage Land</a>
 </li>
 </ul>
 </div>
@@ -45,7 +44,7 @@
 <div class="card-header">
     <div class="col-sm-10">
         
-        <a href="addcategory.php"><button class="btn btn-primary pull-right">+ Add Category</button></a>
+        <a href="addcategory.php"><button class="btn btn-primary pull-right">+ Add Land</button></a>
         
     </div>
 
@@ -55,13 +54,13 @@
 <table id="dom-jqry" class="table table-striped table-bordered nowrap">
 <thead>
 <tr>
-<th>S.NO</th>
- <th>Category</th> 
+<th>ID</th>
+ <th>Land Name</th> 
 <th>Action</th>
 </tr>
 </thead>
 <?php
-$ret=mysqli_query($conn,"select *from  tblcategory");
+$ret=mysqli_query($conn,"select *from  tblcategory where sale='F'");
 $cnt=1;
  while ($row=mysqli_fetch_array($ret)) {
 ?>
@@ -72,6 +71,8 @@ $cnt=1;
             
             <td>
               <a href="edit-category.php?editid=<?php echo $row['ID'];?>" class="btn btn-xs btn-primary"><i class="feather icon-edit m-t-10 f-16 " ></i></a>
+              <a href="view-category.php?editid=<?php echo $row['ID'];?>" class="btn btn-xs btn-primary"><i class="feather icon-eye m-t-10 f-16 " ></i></a>
+              <a href="view-cat-detail.php?viewid=<?php echo $row['ID'];?>" class="btn btn-xs btn-primary"><i class="feather icon-check m-t-10 f-16 " ></i></a>
             </td>
         </tr>
     

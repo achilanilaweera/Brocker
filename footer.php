@@ -1,6 +1,6 @@
 
 <
-             <footer class="footer text-center" >for any Academic or Commercial Project Development Contact me at - <a href = "mailto:mayuri.infospace@gmail.com   target="_blank" style="color: white;" "float:left"><?php echo "mayuri.infospace@gmail.com";?>    
+             <footer class="footer text-center" >© 2013 Janie Doe.  All rights reserved.<a   target="_blank" style="color: white;" "float:left"><?php echo "";?>    
            
 </a></footer> 
 

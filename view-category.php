@@ -44,7 +44,7 @@ if(isset($_POST['submit']))
 <div class="col-lg-8">
 <div class="page-header-title">
 <div class="d-inline">
-<h4>Lands</h4>
+<h4>Vehicle Category</h4>
 
 
 </div>
@@ -56,9 +56,9 @@ if(isset($_POST['submit']))
 <li class="breadcrumb-item">
 <a href=""> <i class="feather icon-home"></i> </a>
 </li>
-<li class="breadcrumb-item"><a>View Lands</a>
+<li class="breadcrumb-item"><a>Manage Category</a>
 </li>
-<li class="breadcrumb-item"><a href="edit-category.php">Lands</a>
+<li class="breadcrumb-item"><a href="edit-category.php">edit-category</a>
 </li>
 </ul>
 </div>
@@ -84,7 +84,7 @@ if(isset($_POST['submit']))
 
                                     ?>
     <div class="form-group row">
-        <label class="col-lg-2">Land Name</label>
+        <label class="col-lg-2">Category</label>
         
         <input type="text" id="catename" name="catename" class="form-control col-lg-6" placeholder="Vehicle Category" required="true" value="<?php  echo $row['land_cat'];?>">
         <br>
@@ -116,12 +116,8 @@ if(isset($_POST['submit']))
                     </div>
                     <div class="form-group col-md-4">
                       <label for="province">Province</label>
-                      <select id="inputState" name="province" id="province" class="form-control"  required="true" value="<?php  echo $row['province'];?>">
-                        <option selected>Central Province</option>
-                        <option selected>Western Province</option>
-                        <option selected>Southern Province</option>
-                        <option selected>North Province</option>
-                      </select>
+                      <input type="text" id="inputState" name="province" id="province" class="form-control"  required="true" value="<?php  echo $row['province'];?>">
+                       
                     </div>
                     <div class="form-group col-md-2">
                       <label for="inputZip">G.W</label>
@@ -131,7 +127,7 @@ if(isset($_POST['submit']))
 
     <?php } ?>
         <div class="col-lg-12">
-      <button type="submit" name="submit" class="btn btn-primary m-b-0">Update</button>
+     <!---- <button type="submit" name="submit" class="btn btn-primary m-b-0">Update</button> -->
     </div>
 </form>
 </div>

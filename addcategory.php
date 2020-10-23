@@ -17,41 +17,10 @@ if (isset($_POST['submit'])) {
   $gw = $_POST['gw'];
   $price = $_POST['price'];
   $purpose = $_POST['purpose'];
-  $img=$_POST['image'];
+  $sstatus=$_POST['sstatus'];
 
-  extract($_POST);
-   
-  if($img['image']['name']!=''){
-      $file_name = $img['image']['name'];
-      $file_type = $img['image']['type'];
-      $file_size = $img['image']['size'];
-      $file_tem_loc = $img['image']['tmp_name'];
-      $file_store = "uploadImage/Profile/".$file_name;
-
-      if (move_uploaded_file($file_tem_loc, $file_store)) {
-        echo "file uploaded successfully";
-      }
-  }
-  else{
-    $file_name=$_POST['old_image'];
-  } 
-      $folder = "uploadImage/Profile/";
-
-      if (is_dir($folder)) 
-      {
-         if ($open = opendir($folder))
-
-          while (($img=readdir($open)) !=false) {
-              
-              if($img=='.'|| $img=="..") continue;
-
-              echo '<img src="uploadImage/Profile/'.$img.'" width="150" height="150">';
-          }
-
-          closedir($open);
-        } 
-
-  $query = mysqli_query($conn, "insert into tblcategory (land_cat,perch,owner,address,address2,broker,city,province,gw,price,purpose,imagename) value('$catname','$perchname','$ownername','$address','$address2','$bname','$city','$province','$gw','$price',' $purpose',' $img')");
+ 
+  $query = mysqli_query($conn, "insert into tblcategory (land_cat,perch,owner,address,address2,broker,city,province,gw,price,purpose,sale) value('$catname','$perchname','$ownername','$address','$address2','$bname','$city','$province','$gw','$price',' $purpose',' $sstatus')");
   if ($query) {
   
 
@@ -156,16 +125,18 @@ if (isset($_POST['submit'])) {
                       <label for="inputAddress2">Price</label>
                       <input type="text" name="price" id="price" class="form-control">
                     </div>
-                    <div class="form-group">
+                    <div class="form-row">
+                    <div class="form-group col-md-6">
                       <label for="inputAddress2">Purpose</label>
                       <input type="text" name="purpose" class="form-control" id="purpose" placeholder="Apartment, studio, or floor">
                     </div>
-                    <label class="col-sm-2 col-form-label">Image</label>
-                     <div class="col-sm-4">
-
-                    <input type="file"  class="form-control" name="image" >
-           
-                  </div>
+                    <div class="form-group col-md-4">
+                        <label for="province">Sale Status</label>
+                        <select id="sstatus" name="sstatus" id="sstatus" class="form-control">
+                          <option selected>F</option>
+                        </select>
+                      </div>
+                    </div>
                   </br>
                     <button type="submit" id="submit1" name="submit" class="btn btn-primary" onclick="popup()">Submit</button>
                 
@@ -208,6 +179,7 @@ if (isset($_POST['submit'])) {
     var gw = $('#gw').val();
     var price = $('#price').val();
     var purpose = $('#purpose').val();
+    var sstatus =$('#sstatus').val();
 
     if (catename == '' || ownername == '' || address == '' || bname == '') {
       swal({

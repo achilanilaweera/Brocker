@@ -7,14 +7,14 @@ if(isset($_POST['submit']))
   {
     
     $cid=$_GET['viewid'];
-      $remark=$_POST['remark'];
-      $status=$_POST['status'];
- 
+      //$remark=$_POST['remark'];
+      $sale=$_POST['sale'];
+      $sdate=$_POST['sdate'];
       
-    $query=mysqli_query($conn, "update  tblvehicle set remarks='$remark',status='$status' where ID='$cid'");
+    $query=mysqli_query($conn, "update  tblcategory set sale='$sale',sdate='$sdate' where ID='$cid'");
     if ($query) {
        echo "<script>alert popup()('Data Successfully Updated.');</script>";
-       echo "<script>window.location.href ='manage-incomingvehicle.php'</script>";
+       echo "<script>window.location.href ='index.php'</script>";
   }
   else
     {
@@ -36,7 +36,7 @@ if(isset($_POST['submit']))
 <div class="col-lg-8">
 <div class="page-header-title">
 <div class="d-inline">
-<h4>Manage Buyers</h4>
+<h4>Sell Lands</h4>
 
 </div>
 </div>
@@ -47,9 +47,9 @@ if(isset($_POST['submit']))
 <li class="breadcrumb-item">
 <a href="dashboard.php"> <i class="feather icon-home"></i> </a>
 </li>
-<li class="breadcrumb-item"><a>Manage Buyer</a>
+<li class="breadcrumb-item"><a>Sell</a>
 </li>
-<li class="breadcrumb-item"><a href="manage-incomingvehicle.php">Manage Buyere</a>
+<li class="breadcrumb-item"><a href="manage-incomingvehicle.php">Lands</a>
 </li>
 </ul>
 </div>
@@ -59,12 +59,12 @@ if(isset($_POST['submit']))
 <div class="page-body">
    <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">View Buyer Information</strong>
+                            <strong class="card-title">View Land Information</strong>
                         </div>
                         <div class="card-body"> 
                           <?php
                           $cid=$_GET['viewid'];
-                          $ret=mysqli_query($conn,"select * from tblvehicle where ID='$cid'");
+                          $ret=mysqli_query($conn,"select * from tblcategory where ID='$cid'");
                           $cnt=1;
                           while ($row=mysqli_fetch_array($ret)) {
 
@@ -72,41 +72,41 @@ if(isset($_POST['submit']))
                           <table border="1" class="table table-bordered mg-b-0">
               
                             <tr>
-                                <th>Buyer Name</th>
-                                <td><?php  echo $row['buyername'];?></td>
+                                <th>Land Name</th>
+                                <td><?php  echo $row['land_cat'];?></td>
                               </tr>                             
                               <tr>
-                                <th>Buyer Address</th>
-                                  <td><?php  echo $row['buyeraddress'];?></td>
+                                <th>Perch</th>
+                                  <td><?php  echo $row['perch'];?></td>
                               </tr>
                             <tr>
-                              <th>Home Telephone Number</th>
-                              <td><?php  echo $packprice= $row['home'];?></td>
+                              <th>Owner</th>
+                              <td><?php  echo $packprice= $row['owner'];?></td>
                             </tr>
                             <tr>
-                              <th>Mobile</th>
-                              <td><?php  echo $row['mobile'];?></td>
+                              <th>Address</th>
+                              <td><?php  echo $row['address'];?></td>
                             </tr>
                             <tr>
-                              <th>Owner Name</th>
-                              <td><?php  echo $row['OwnerName'];?></td>
+                              <th>Broker</th>
+                              <td><?php  echo $row['broker'];?></td>
                             </tr>
                             <tr>  
-                              <th>NIC</th>
-                              <td><?php  echo $row['NIC'];?></td>
+                              <th>Price</th>
+                              <td><?php  echo $row['price'];?></td>
                             </tr>
                     
                             <tr>
-                            <th>Status</th>
+                            <th>Land Status</th>
                             <td> 
                               <?php  
-                              if($row['status']=="Paid")
+                              if($row['sale']=="F")
                               {
-                                echo "Paid";
+                                echo "Not Sold";
                               }
-                              if($row['status']=="Not Paid")
+                              if($row['sale']=="T")
                               {
-                                echo "Not Paid";
+                                echo "Sold";
                               } 
                               ;?>
                             </td>
@@ -129,10 +129,15 @@ if(isset($_POST['submit']))
                     <tr>
                       <th>Status :</th>
                       <td>
-                        <select name="status" class="form-control" required="true" >
-                          <option value="Paid">Paid Customer</option>
+                        <select name="sale" class="form-control" required="true" >
+                          <option value="Sold">Sold</option>
                         </select>
                       </td>
+                    </tr>
+                    <tr>
+                      <th>Sell Date :</th>
+                      <td>
+                      <input type="date" name="sdate" class="form-control" required="true"></input></td>
                     </tr>
                     <tr>  
                       <p style="text-align: center;"><td> <button type="submit" class="btn btn-primary m-b-0" name="submit" >Update</button></p></td></tr>
@@ -156,6 +161,9 @@ if(isset($_POST['submit']))
                     </div>
                 </div>
 
+
+<!--  Author Name: Mayuri K. 
+ for any PHP, Codeignitor or Laravel work contact me at mayuri.infospace@gmail.com  -->
 
 </div>
 
