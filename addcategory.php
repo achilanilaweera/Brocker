@@ -17,14 +17,24 @@ if (isset($_POST['submit'])) {
   $gw = $_POST['gw'];
   $price = $_POST['price'];
   $purpose = $_POST['purpose'];
- // $sell=$_POST['sell'];
-  
- 
 
- 
-  $query = mysqli_query($conn, "insert into tblcategory (land_cat,perch,owner,address,address2,broker,city,province,gw,price,purpose,sale) value('$catname','$perchname','$ownername','$address','$address2','$bname','$city','$province','$gw','$price','$purpose','F')");
-  if ($query) {
+
   
+  foreach ($_FILES["image"]["error"] as $key => $error) {
+    if ($error == UPLOAD_ERR_OK) {
+  $fileinfo=PATHINFO($_FILES["image"]["name"]);
+	$newFilename=$fileinfo['filename'] ."_". time() . "." . $fileinfo['extension'];
+	move_uploaded_file($_FILES["image"]["tmp_name"],"../Brocker/" . $newFilename);
+  $location="../Brocker/"  . $newFilename;
+  
+    }
+  }
+
+  
+
+  $query = mysqli_query($conn, "insert into tblcategory (land_cat,perch,owner,address,address2,broker,city,province,gw,price,purpose,sale,test) value('$catname','$perchname','$ownername','$address','$address2','$bname','$city','$province','$gw','$price','$purpose','F','$location')");
+  if ($query) {
+
 
     //echo "<script>alert popup()('Data Successfully Added.');</script>";
     echo "<script>window.location.href ='manage-category.php'</script>";
@@ -34,7 +44,12 @@ if (isset($_POST['submit'])) {
 }
 
 
+
+
+
+
 ?>
+
 
 <div class="pcoded-content">
   <div class="pcoded-inner-content">
@@ -75,72 +90,80 @@ if (isset($_POST['submit'])) {
             <div class="card-block">
               <form role="form" method="post">
 
-                
-                  <div class="form-row">
-                    <div class="form-group col-md-6">
-                      <label for="catename">Land</label>
-                      <input type="text" name="catename" class="form-control" id="catename" placeholder="Land Name" required="true">
-                    </div>
-                    <div class="form-group col-md-6">
-                      <label for="inputPassword4">Perch/Hectares</label>
-                      <input type="text" class="form-control" name="perchname" id="perchname" placeholder="Perch/Hectares" required="true">
-                    </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="catename">Land</label>
+                    <input type="text" name="catename" class="form-control" id="catename" placeholder="Land Name" required="true">
                   </div>
-                  <div class="form-group">
-                    <label for="inputAddress">Owner</label>
-                    <input type="text" class="form-control" name="ownername" id="ownername" placeholder="John Doe" required="true">
+                  <div class="form-group col-md-6">
+                    <label for="inputPassword4">Perch/Hectares</label>
+                    <input type="text" class="form-control" name="perchname" id="perchname" placeholder="Perch/Hectares" required="true">
                   </div>
-                  <div class="form-group">
-                    <label for="inputAddress">Address</label>
-                    <input type="text" class="form-control" name="address" id="address" placeholder="1234 Main St">
+                </div>
+                <div class="form-group">
+                  <label for="inputAddress">Owner</label>
+                  <input type="text" class="form-control" name="ownername" id="ownername" placeholder="John Doe" required="true">
+                </div>
+                <div class="form-group">
+                  <label for="inputAddress">Address</label>
+                  <input type="text" class="form-control" name="address" id="address" placeholder="1234 Main St">
+                </div>
+                <div class="form-group">
+                  <label for="inputAddress2">Address 2</label>
+                  <input type="text" class="form-control" name="address2" id="address2" placeholder="Apartment, studio, or floor">
+                </div>
+                <div class="form-group">
+                  <label for="inputAddress2">Broker Name</label>
+                  <input type="text" class="form-control" name="bname" id="bname" placeholder="Apartment, studio, or floor">
+                </div>
+
+
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputCity">City</label>
+                    <input type="text" class="form-control" id="city" name="city">
                   </div>
-                  <div class="form-group">
-                    <label for="inputAddress2">Address 2</label>
-                    <input type="text" class="form-control" name="address2" id="address2" placeholder="Apartment, studio, or floor">
+                  <div class="form-group col-md-4">
+                    <label for="province">Province</label>
+                    <select id="inputState" name="province" id="province" class="form-control">
+                      <option selected>Central Province</option>
+                      <option selected>Western Province</option>
+                      <option selected>Southern Province</option>
+                      <option selected>North Province</option>
+                    </select>
                   </div>
-                  <div class="form-group">
-                    <label for="inputAddress2">Broker Name</label>
-                    <input type="text" class="form-control" name="bname" id="bname" placeholder="Apartment, studio, or floor">
+                  <div class="form-group col-md-2">
+                    <label for="inputZip">G.W</label>
+                    <input type="text" name="gw" id="gw" class="form-control">
                   </div>
-            
-                 
-                    <div class="form-row">
-                      <div class="form-group col-md-6">
-                        <label for="inputCity">City</label>
-                        <input type="text" class="form-control" id="city" name="city">
-                      </div>
-                      <div class="form-group col-md-4">
-                        <label for="province">Province</label>
-                        <select id="inputState" name="province" id="province" class="form-control">
-                          <option selected>Central Province</option>
-                          <option selected>Western Province</option>
-                          <option selected>Southern Province</option>
-                          <option selected>North Province</option>
-                        </select>
-                      </div>
-                      <div class="form-group col-md-2">
-                        <label for="inputZip">G.W</label>
-                        <input type="text" name="gw" id="gw" class="form-control">
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="inputAddress2">Price</label>
-                      <input type="text" name="price" id="price" class="form-control">
-                    </div>
-                    <div class="form-row">
-                    <div class="form-group col-md-6">
-                      <label for="inputAddress2">Purpose</label>
-                      <input type="text" name="purpose" class="form-control" id="purpose" placeholder="Apartment, studio, or floor">
-                    </div>
-                    
-                      <!-- <div class="form-group col-md-6">
+                </div>
+                <div class="form-group">
+                  <label for="inputAddress2">Price</label>
+                  <input type="text" name="price" id="price" class="form-control">
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputAddress2">Purpose</label>
+                    <input type="text" name="purpose" class="form-control" id="purpose" placeholder="Apartment, studio, or floor">
+                  </div>
+                  <div class="form-group col-md-6">
+                  <label class="custom-file-label" for="chooseFile">Select file</label>
+                    <input type="file" name="image" class="form-control" id="chooseFile" multiple>
+                    <img src="../Brocker/">
+                  </div>
+                  <div class="imgGallery">
+                    <!-- image preview -->
+                  </div>
+
+                  <!-- <div class="form-group col-md-6">
                       <label for="Sell">Sell</label>
                       <input type="text" name="sell" class="form-control" id="purpose" placeholder="Not Sold">
                     </div> -->
-                    </div>
-                  </br>
-                    <button type="submit" id="submit1" name="submit" class="btn btn-primary" onclick="popup()">Submit</button>
-                
+                </div>
+                </br>
+                <button type="submit" id="submit1" name="submit" class="btn btn-primary" onclick="popup()">Submit</button>
+
 
               </form>
             </div>
@@ -180,7 +203,7 @@ if (isset($_POST['submit'])) {
     var gw = $('#gw').val();
     var price = $('#price').val();
     var purpose = $('#purpose').val();
-    var sstatus =$('#sstatus').val();
+    var sstatus = $('#sstatus').val();
 
     if (catename == '' || ownername == '' || address == '' || bname == '') {
       swal({
@@ -200,6 +223,33 @@ if (isset($_POST['submit'])) {
   });
 </script>
 <!--------- Alert Box End --------->
+
+<script>
+  $(function () {
+    // Multiple images preview with JavaScript
+    var multiImgPreview = function (input, imgPreviewPlaceholder) {
+
+      if (input.files) {
+        var filesAmount = input.files.length;
+
+        for (i = 0; i < filesAmount; i++) {
+          var reader = new FileReader();
+
+          reader.onload = function (event) {
+            $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(imgPreviewPlaceholder);
+          }
+
+          reader.readAsDataURL(input.files[i]);
+        }
+      }
+
+    };
+
+    $('#chooseFile').on('change', function () {
+      multiImgPreview(this, 'div.imgGallery');
+    });
+  });
+</script>
 
 
 
