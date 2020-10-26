@@ -60,7 +60,7 @@
 </tr>
 </thead>
 <?php
-$ret=mysqli_query($conn,"select *from  tblcategory where sale='F'");
+$ret=mysqli_query($conn,"select * from  tblcategory where sale='F'");
 $cnt=1;
  while ($row=mysqli_fetch_array($ret)) {
 ?>

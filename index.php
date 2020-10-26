@@ -30,7 +30,7 @@
 $ret=mysqli_query($conn,"select count(ID) as id4 from tblcategory where sale='Sold'");
  $row4=mysqli_fetch_array($ret);  
 
-$ret=mysqli_query($conn,"select count(ID) as id1 from tblcategory where sale='F'");
+$ret=mysqli_query($conn,"select count(ID) as id1 from tblcategory ");
  $row=mysqli_fetch_array($ret);  
  //echo $row;exit;                
 $ret=mysqli_query($conn,"select count(ID) as id2 from tblvehicle ");
@@ -83,7 +83,7 @@ $ret=mysqli_query($conn,"select count(ID) id2 from   tblcategory where sale='Sol
 <div class="col-8">
 
 <h4 class="text-white"><?php echo $row['id1']; ?></h4>
-<h6 class="text-white m-b-0">Pending Lands</h6>
+<h6 class="text-white m-b-0">Total Lands</h6>
 </div>
 <div class="col-4 text-right">
 <canvas id="update-chart-3" height="50"></canvas>
@@ -103,7 +103,7 @@ $ret=mysqli_query($conn,"select count(ID) id2 from   tblcategory where sale='Sol
 <div class="col-8">
 
 <h4 class="text-white"><?php echo $row2['id2']; ?></h4>
-<h6 class="text-white m-b-0">Registerd Users</h6>
+<h6 class="text-white m-b-0">Registerd Buyers</h6>
 </div>
 <div class="col-4 text-right">
 <canvas id="update-chart-4" height="50"></canvas>
@@ -172,7 +172,7 @@ $ret=mysqli_query($conn,"select count(ID) id2 from   tblcategory where sale='Sol
 </div>
 <div class="card col-xl-5 col-md-6 ">
   <div class="card-header">
-  <h3>Parking Status Graph</h3>
+  <h3>Land Status Graph</h3>
   </div> 
     <div class="container m-t-50" id="invoice">
 <div>

@@ -17,10 +17,12 @@ if (isset($_POST['submit'])) {
   $gw = $_POST['gw'];
   $price = $_POST['price'];
   $purpose = $_POST['purpose'];
-  $sstatus=$_POST['sstatus'];
+ // $sell=$_POST['sell'];
+  
+ 
 
  
-  $query = mysqli_query($conn, "insert into tblcategory (land_cat,perch,owner,address,address2,broker,city,province,gw,price,purpose,sale) value('$catname','$perchname','$ownername','$address','$address2','$bname','$city','$province','$gw','$price',' $purpose',' $sstatus')");
+  $query = mysqli_query($conn, "insert into tblcategory (land_cat,perch,owner,address,address2,broker,city,province,gw,price,purpose,sale) value('$catname','$perchname','$ownername','$address','$address2','$bname','$city','$province','$gw','$price','$purpose','F')");
   if ($query) {
   
 
@@ -130,12 +132,11 @@ if (isset($_POST['submit'])) {
                       <label for="inputAddress2">Purpose</label>
                       <input type="text" name="purpose" class="form-control" id="purpose" placeholder="Apartment, studio, or floor">
                     </div>
-                    <div class="form-group col-md-4">
-                        <label for="province">Sale Status</label>
-                        <select id="sstatus" name="sstatus" id="sstatus" class="form-control">
-                          <option selected>F</option>
-                        </select>
-                      </div>
+                    
+                      <!-- <div class="form-group col-md-6">
+                      <label for="Sell">Sell</label>
+                      <input type="text" name="sell" class="form-control" id="purpose" placeholder="Not Sold">
+                    </div> -->
                     </div>
                   </br>
                     <button type="submit" id="submit1" name="submit" class="btn btn-primary" onclick="popup()">Submit</button>

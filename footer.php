@@ -1,6 +1,6 @@
 
-<
-             <footer class="footer text-center" >© 2013 Janie Doe.  All rights reserved.<a   target="_blank" style="color: white;" "float:left"><?php echo "";?>    
+
+             <footer class="footer text-center" >© 2020 Creative Panda.  All rights reserved.<a   target="_blank" style="color: white;" "float:left"><?php echo "";?>    
            
 </a></footer> 
 
