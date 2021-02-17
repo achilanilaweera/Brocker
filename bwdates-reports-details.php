@@ -58,27 +58,46 @@
                                 <tr>
                                     <tr>
                                         <th>S.NO</th>
-                                            <th>Parking Number</th>
-                                            <th>Owner Name</th>
-                                            <th>Vehicle Reg Number</th>
-                                            <th>Action</th>
+                                            <th>Land Name</th>
+                                            <th>Perch</th>
+                                            <th>Owner</th>
+                                            <th>Address</th>
+                                            <th>Broker</th>
+                                            <th>Price</th>
+                                            <th>City</th>
+                                            <th>G.W</th>
+                                            <th>Sold Date</th>
+                                            <th>Purpose</th>
+                                            
+
+                                            
                                         </tr>
                                     </tr>
                             </thead>
                             <?php
-                            $ret=mysqli_query($conn,"select *from   tblvehicle where date(InTime) between '$fdate' and '$tdate'");
+                            $ret=mysqli_query($conn,"select *from  tblcategory where sdate between '$fdate' and '$tdate'");
                             $cnt=1;
                             while ($row=mysqli_fetch_array($ret)) {
+                               
                             ?>
                     
                             <tr>
                                 <td><?php echo $cnt;?></td>
                                 
-                                <td><?php  echo $row['ParkingNumber'];?></td>
-                                <td><?php  echo $row['OwnerName'];?></td>
-                                <td><?php  echo $row['RegistrationNumber'];?></td>
+                                <td><?php  echo $row['land_cat'];?></td>
+                                <td><?php  echo $row['perch'];?></td>
+                                <td><?php  echo $row['owner'];?></td>
+                                <td><?php  echo $row['address'];?></td>
+                                <td><?php  echo $row['broker'];?></td>
+                                <td><?php  echo $row['price'];?></td>
+                                <td><?php  echo $row['city'];?></td>
+                                <td><?php  echo $row['gw'];?></td>
+                                <td><?php  echo $row['sdate'];?></td>
+                                <td><?php  echo $row['purpose'];?></td>
+                              
                                 
-                                <td><a href="view-incomingvehicle-detail.php?viewid=<?php echo $row['ID'];?>"class="btn btn-xs btn-primary"><i class="feather icon-clock m-t-10 f-16 " ></i></a></td>
+                                
+                                
                             </tr>
                             <?php 
                             $cnt=$cnt+1;

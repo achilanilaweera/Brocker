@@ -63,18 +63,18 @@
 <li class="pcoded-hasmenu">
 <a href="javascript:void(0)">
 <span class="pcoded-micon"><i class="fa fa-bars"></i></span>
-<span class="pcoded-mtext">Manage Category</span>
+<span class="pcoded-mtext">Manage Lands</span>
 </a>
 <ul class="pcoded-submenu">
 <li class="">
 <a href="addcategory.php">
 <span class="pcoded-micon"><i class="fa fa-plus"></i></span>
-<span class="pcoded-mtext">Add Category</span>
+<span class="pcoded-mtext">Add Lands</span>
 </a>
 </li>
 <li class="">
 <a href="manage-category.php">
-<span class="pcoded-mtext">View Categories</span>
+<span class="pcoded-mtext">View Lands</span>
 </a>
 </li>
 
@@ -84,15 +84,61 @@
 
 
 
+<li class="pcoded-hasmenu">
+<a href="javascript:void(0)">
+<span class="pcoded-micon"><i class="fa fa-bars"></i></span>
+<span class="pcoded-mtext">Manage Brokers</span>
+</a>
+<ul class="pcoded-submenu">
 <li class="">
+<a href="addbrokers.php">
+<span class="pcoded-micon"><i class="fa fa-plus"></i></span>
+<span class="pcoded-mtext">Add Brokers</span>
+</a>
+</li>
+<li class="">
+<a href="manage-brokers.php">
+<span class="pcoded-mtext">View Brokers</span>
+</a>
+</li>
+
+</ul>
+
+</li>
+
+<li class="pcoded-hasmenu">
+<a href="javascript:void(0)">
+<span class="pcoded-micon"><i class="fa fa-bars"></i></span>
+<span class="pcoded-mtext">Manage Buyers</span>
+</a>
+<ul class="pcoded-submenu">
+<li class="">
+<a href="add-vehicle.php">
+<span class="pcoded-micon"><i class="fa fa-plus"></i></span>
+<span class="pcoded-mtext">Add Buyers</span>
+</a>
+</li>
+<li class="">
+<a href="manage-incomingvehicle.php">
+<span class="pcoded-mtext">Manage Buyers</span>
+</a>
+</li>
+
+</ul>
+
+</li>
+
+
+
+<!-- <li class="">
 <a href="add-vehicle.php">
 <span class="pcoded-micon"><i class="fa fa-automobile"></i></span>
 <span class="pcoded-mtext">Vehicle Entry</span>
 </a>
-</li>
+</li> -->
 
 
-<li class="pcoded-hasmenu">
+<!-- <li class="pcoded-hasmenu">
 <a href="javascript:void(0)">
 <span class="pcoded-micon"><i class="fa fa-retweet"></i></span>
 <span class="pcoded-mtext">Vehicle In/Out</span>
@@ -109,7 +155,7 @@
 </a>
 </li>
 </ul>
-</li>
+</li> -->
 
 <li class="pcoded-hasmenu">
 <a href="javascript:void(0)">
@@ -119,20 +165,19 @@
 <ul class="pcoded-submenu">
 <li class="">
 <a href="bwdates-report-ds.php">
-<span class="pcoded-mtext">Searchable Reports</span>
+<span class="pcoded-mtext">Sold Lands Reports</span>
 </a>
 </li>
 
 </ul>
 </li>
-<!--  Author Name: Mayuri K. 
- for any PHP, Codeignitor or Laravel work contact me at mayuri.infospace@gmail.com  -->
-<li class="">
+
+<!-- <li class="">
 <a href="search_v.php">
 <span class="pcoded-micon"><i class="feather icon-search"></i></span>
 <span class="pcoded-mtext">Parking Status</span>
 </a>
-</li>
+</li> -->
 
 <?php if(isset($useroles)){  if(in_array("settings",$useroles)){ ?>
 <li class="">
@@ -143,19 +188,19 @@
 </li>
 <?php } } ?>
 
-<li class="">
+<!-- <li class="">
 <a href="portfolio.php" aria-expanded="false">
 <span class="pcoded-micon"><i class="fa fa-product-hunt"></i></span>
 <span class="pcoded-mtext">More Projects!</span>
 </a>
-</li>
-
+</li> -->
+<!-- 
 <li class="">
 <a href="about.php" aria-expanded="false">
 <span class="pcoded-micon"><i class="fa fa-info-circle"></i></span>
 <span class="pcoded-mtext">About Author!</span>
 </a>
-</li>
+</li> -->
 
 <li class="">
 <a href="logout.php">
